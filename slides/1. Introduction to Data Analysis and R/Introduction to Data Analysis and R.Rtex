@@ -1,0 +1,260 @@
+\documentclass[UTF8]{beamer}
+\usepackage{graphicx, color}
+\usepackage{zhspacing}
+\usetheme{JuanLesPins}
+\usepackage{fontspec}
+
+\usepackage{enumerate}
+
+\AtBeginSection[]{
+	\frame{
+		\frametitle{Next}
+		\tableofcontents[currentsection, subsectionstyle=show/shaded/hide]
+	}
+}
+
+\title{R for Bioinformatics}
+\subtitle{Introduction, Programming, Data Analysis and Visualization\\
+Introduction to Data Analysis and R}
+\author{Gang Chen \\ chengang@bgitechsolutions.com}
+
+\begin{document}
+
+\begin{frame}
+\titlepage  
+\end{frame}
+
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents[hideallsubsections]
+\end{frame}
+
+\subsection{Data Analysis}
+\begin{frame}
+\frametitle{Data Analysis}
+\begin{block}{Wikipedia}
+Analysis of data is a process of inspecting, cleaning, transforming, and modeling data with the goal of discovering useful information, suggesting conclusions, and supporting decision making. 
+\end{block}
+
+\begin{block}{Data Analysis}
+Collecting $\rightarrow$ cleaning $\rightarrow$ transforming $\rightarrow$ modeling $\rightarrow$ visualizing
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Biological Data Analysis}
+  \begin{block}{NGS and Complex Diseases}
+Sequencing $\rightarrow$ QC $\rightarrow$ Alignment and Variant Calling$\rightarrow$ GWAS, EWAS \ldots $\rightarrow$ Manhattan Plot, Q-Q plot \ldots
+
+\pause $\rightarrow$ paper
+  \end{block}
+\end{frame}
+
+\subsection{Data Aanlysis and R}
+
+\begin{frame}
+  \frametitle{What is R?}
+\begin{block}{R}
+R is a \textbf{free} software environment for statistical computing and graphics.
+
+----R-project.org
+\end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{History}
+\begin{itemize}
+\item April 1st, 1997, R0.16，奥克兰大学的Ihaka和Gentleman发布了第一版本的R
+\item 1997年4月23日，0.49，CRAN网站发布，提供12个R的扩展包
+\item 1997年12月5日，0.60，R成文GNU项目的一部分
+\item 2000年2月29日，1.0，第一个可用于生产环境的版本发布
+\item 2010年4月22日，2.11，支持64位Windows操作系统
+\item 2011年10月31日，2.14，提供全新的并行计算包
+\item 2013年4月，3.0.0
+\item Now, 3.0.2
+\end{itemize}  
+\end{frame}
+
+\begin{frame}[t]\frametitle{R语言在中国}
+\begin{itemize}
+\item 2004年，国内专业人员开始翻译R语言官方文档
+\item 2006年，国内开始出版R语言书籍
+\item 2008年，在北京中国人民大学召开第一届中国R语言会议
+\item 2009年-2012年，每年分别在北京和上海举办中国R语言会议，迄今已举办五届
+\item 2012年，国人开发的Knitr包几乎成为R语言文档自动化的新标准，同时大量R语言畅销书籍被引进到国内翻译出版。
+\item 2013年，《R语言实战》、《ggplot2》、《R in a nutshell》 \ldots
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]\frametitle{R语言的现状}
+\begin{itemize}
+\item 使用领域囊括统计分析、数据挖掘、生命科学、商业智能、数据可视化、社交网络分析、电子商务、集成电路、金融、烟草、传媒、咨询等
+\item 赞助R语言开发工作的机构包括AT\&T、默沙东、Google、新西兰电信，以及诸多大学及科研机构。
+\item 在商业产品中提供R语言支持的企业包括SAP、甲骨文、Teredata、IBM、Revolution、Matlab、SAS、SPSS等。
+\item 2012第五届中国R语言会议（上海会场）获得大量赞助，吸引了400多人注册，到会人员几乎涉及R所有应用领域的国内知名企业。
+\item 2013年第六届中国R语言会议（北京，5月；上海，11\~12月）。
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Pros and Cons}
+  
+\end{frame}
+
+\subsection{Hello R!}
+
+\begin{frame}[fragile]
+  \frametitle{Hello R!}
+%% begin.rcode
+% print("Hello R!")
+%% end.rcode  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hello Plot}
+%% begin.rcode helloplot, out.height='.6\\textheight',  out.width='.6\\textheight', fig.align='center'
+% plot(rnorm(100),rnorm(100))
+%% end.rcode
+\end{frame}
+
+\subsection{Development Environment}
+
+\begin{frame}
+\frametitle{Download and Installation}
+\begin{block}{Download}
+\centerline{\huge{CRAN}}
+\end{block}
+
+\begin{block}{Installation}
+\begin{itemize}
+\item R: Linux, Mac OS, Windows
+\item Rtools: Windows
+\item packages: CRAN, devtools, github, local file
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Editors and IDEs}
+\begin{block}{Editors}
+\begin{itemize}
+\item R terminal
+\item Rgui
+\item VIM + Vim-R-plugin
+\item Emacs + ESS
+\item Notepad++ + NppToR
+\item \ldots
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{R Terminal and Rgui}
+\begin{columns}
+
+\begin{column}{.5\textwidth}
+\begin{block}{R}
+\begin{itemize}
+\item Ctrl +　Ｒ: run
+\item Tab: auto complete
+\item arrow up and down: history
+\end{itemize}
+\end{block}
+\end{column}
+
+\begin{column}{.5\textwidth}
+\begin{block}{R and Texteditor}
+\begin{itemize}
+\item copy and paste
+\item
+%% begin.rcode, eval=F
+% source("source.R")
+%% end.rcode
+\end{itemize}
+\end{block}
+\end{column}
+\end{columns}
+
+\begin{block}{source}
+\tiny
+%% begin.rcode, eval=F
+%  sourceDir <- function(path, trace = TRUE, ...) {
+%         for (nm in list.files(path, pattern = "[.][RrSsQq]$")) {
+%            if(trace) cat(nm,":")
+%            source(file.path(path, nm), ...)
+%            if(trace) cat("\n")
+%         }
+%      }
+%% end.rcode
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{VIM + Vim-R-plugin}
+\end{frame}
+
+\begin{frame}
+\frametitle{Notepad++ + NppToR}
+\end{frame}
+
+\begin{frame}
+\frametitle{Emacs + ESS}
+\begin{block}{What is ESS?}
+ESS: Emacs Speak Statistics
+\end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{IDEs}
+\begin{block}{IDEs}
+\begin{itemize}
+\item RStudio: local and cloud-based
+\item TinnR
+\item StatET: eclipse for R
+\item \ldots
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{RStudio}
+\end{frame}
+
+\subsection{References}
+\begin{frame}
+\frametitle{Books}
+\begin{itemize}
+	\item R in action (also in Chinese)
+	\item Introduction to R (also in Chinese)
+        \item R for beginner (also in Chinese)
+	\item R in a Nutshell (Chinese version is in press)
+	\item The art of R programming (also in Chinese)
+        \item ggplot2. Elegant Graphics for Data Analysis (also in Chinese)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Websites}
+\begin{itemize}
+\item R-project and CRAN 
+\item COS.name (Chinese)
+\item Quick-R
+\item http://had.co.nz/, Hadley Wickham
+\item Twitter, github, RForge
+\item Google
+\pause Baidu?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Journals}
+\begin{itemize}
+\item The R Journal
+\item Journal of Statistical Software
+\end{itemize}
+\end{frame}
+
+\end{document}
