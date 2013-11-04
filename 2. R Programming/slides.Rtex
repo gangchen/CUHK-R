@@ -1,0 +1,207 @@
+\documentclass[UTF8]{beamer}
+\usepackage{graphicx, color}
+\usepackage{zhspacing}
+\usetheme{JuanLesPins}
+\usepackage{fontspec}
+\setsansfont{Microsoft YaHei}
+
+\usepackage{enumerate}
+
+\AtBeginSection[]{
+	\frame{
+		\frametitle{Next}
+		\tableofcontents[currentsection, subsectionstyle=show/shaded/hide]
+	}
+}
+
+\title{R for Bioinformatics}
+\subtitle{Introduction, Programming, Data Analysis and Visualization\\
+R Programming}
+\author{Gang Chen \\ chengang@bgitechsolutions.com}
+
+\begin{document}
+
+\begin{frame}
+\titlepage  
+\end{frame}
+
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{Data Type}
+
+\begin{frame}[t]\frametitle{Data Type}
+\begin{itemize}
+\item vector
+\item matrix
+\item array
+\item data.frame
+\item factor
+\item list
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{数据类型}
+\begin{block}{向量，矩阵，数组}
+\begin{itemize}
+\item 向量：1维
+\item 矩阵：2维
+\item 数组：N维
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{数据框}
+
+%% begin.rcode
+%
+% data.frame(names=c("A", "B", "C"), 
+%            scores=c(91, 92, 93), 
+%            height=c(177, 169, 172))
+%
+%% end.rcode
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{列表}
+\small
+%% begin.rcode
+%
+% list(a = 1, b = c("A", "B"), 
+%      c = list(x="Test", y="result"), 
+%      d = matrix(rnorm(16), 4, 4))
+%
+%% end.rcode
+\end{frame}
+
+\begin{frame}\frametitle{函数}
+\begin{block}{语法}
+%%begin.rcode func
+%foo <- function(x, y){
+%
+%	return(x+y)
+%
+%}
+%%end.rcode
+\end{block}
+\end{frame}
+
+\section{基本命令}
+
+\begin{frame}[t]\frametitle{基本运算}
+\begin{itemize}
+	\item 四则运算: +, -, *, /
+	\item 幂: $\wedge$
+	\item 矩阵运算: \%*\%
+	\item 集合操作: \%in\%, union, intersect, setdiff
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[t]\frametitle{类型转换}
+\begin{itemize}
+	\item as.numeric
+	\item as.character
+	\item as.data.frame
+	\item as.complex
+	\item \ldots
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]\frametitle{条件语句}
+\begin{itemize}
+	\item if-else: if(cond){}else{}
+	\item switch
+\end{itemize}
+\end{frame}
+\subsection{条件语句}
+
+\begin{frame}[t]\frametitle{循环语句}
+\begin{itemize}
+	\item for
+	\item while
+        \item repeat
+        \item break
+        \item next
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]\frametitle{APPLY系列函数}
+\begin{itemize}
+	\item apply
+	\item tapply
+	\item sapply
+	\item lapply
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{apply}
+%% begin.rcode apply
+%
+% data = matrix(rnorm(10000), ncol=10, nrow=1000)
+%
+% apply(data, 2, sum)
+%
+%% end.rcode
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{tapply}
+%% begin.rcode
+%
+% types = sample(1:4, 1000, replace=T)
+%
+% tapply(data[,1], types, sum)
+%
+%% end.rcode
+\end{frame}
+
+
+\begin{frame}[t]\frametitle{面向对象}
+\begin{block}{S3和S4面向对象系统}
+\begin{itemize}
+	\item S3：古老，简单,动态,不完整
+	\item S4：新，结构化，强大
+\end{itemize}
+\end{block}
+
+\begin{block}{S3}
+\begin{itemize}
+\item 大部分的R包都是基于S3系统的
+\item S3的功能足够开发大部分的软件
+\item S3简单易懂
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{类型type和类class}
+  \begin{block}{两者的关系}
+    \begin{itemize}
+      \item R里面的每个东西都有自己的类型和类
+      \item 有时候两者是一样的
+      \item 类型是最基本的数据结构:例如numeric、character
+      \item 类是一个描述对象的字符串，更容易让人类理解：例如person、gene
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{S3实例}
+\centerline{详见example(exampleOO)}
+\end{frame}
+
+
+\end{document}
